@@ -1,0 +1,137 @@
+.properties-dashboard {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.properties-dashboard h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  margin: 0 0 24px;
+  color: #222;
+  font-weight: 800;
+}
+
+.properties-dashboard .filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.properties-dashboard .filter-input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 14px;
+}
+
+.properties-dashboard .properties-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.properties-dashboard .property-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: var(--shadow-1);
+}
+
+.properties-dashboard .property-card a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.properties-dashboard .property-card a:hover {
+  opacity: 0.8;
+}
+
+.properties-dashboard .meta {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.properties-dashboard .cat-pill {
+  background: var(--paper);
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  display: inline-block;
+}
+
+.properties-dashboard .property-actions-group {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.properties-dashboard .view-reviews-btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
+  transition: all 0.2s ease;
+}
+
+.properties-dashboard .view-reviews-btn:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(35, 77, 66, 0.2);
+}
+
+.properties-dashboard .view-reviews-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-1);
+}
+
+.properties-dashboard .view-reviews-btn.active {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.properties-dashboard .property-reviews {
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+
+.properties-dashboard .review-item {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.properties-dashboard .review-item strong {
+  font-weight: 600;
+}
+
+.properties-dashboard .review-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.properties-dashboard .empty-state {
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+}

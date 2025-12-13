@@ -123,12 +123,6 @@ const ManagerDashboard: React.FC = () => {
                     <div style={{textAlign:'right'}}>
                       <div>Avg: {(p.avgFiltered ?? p.avgRating) ? ((p.avgFiltered ?? p.avgRating) as number).toFixed(1) : 'N/A'}</div>
                       <div className="property-actions-group">
-                        <Link
-                          to={`/property/${encodeURIComponent(p.listingName)}`}
-                          className="btn-link"
-                        >
-                          View Property
-                        </Link>
                         <button
                           className={`btn-link btn-manage ${selectedProperty === p.listingName ? 'active' : ''}`}
                           onClick={() => setSelectedProperty(selectedProperty === p.listingName ? null : p.listingName)}

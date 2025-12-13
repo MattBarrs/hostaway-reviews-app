@@ -8,6 +8,7 @@ const Header: React.FC = () => (
     </NavLink>
     <nav>
       <NavLink to="/" exact>Home</NavLink>
+      <NavLink to="/properties-dashboard">Properties</NavLink>
       <NavLink to="/dashboard">Manager Dashboard</NavLink>
     </nav>
   </header>
