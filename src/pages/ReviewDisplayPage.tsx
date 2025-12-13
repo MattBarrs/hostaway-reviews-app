@@ -19,20 +19,29 @@ const ReviewDisplayPage: React.FC = () => {
   return (
     <>
       <Header />
-      <div style={{maxWidth:1000, margin:'0 auto', padding:20}}>
-        <Link to="/dashboard">← Back to dashboard</Link>
-        <header style={{marginTop:12}}>
+      <div className="container property-page">
+        <Link to="/dashboard" className="back-link">
+          Back to dashboard
+        </Link>
+        
+        <header>
           <h1>{decoded}</h1>
-          <p style={{color:'#666'}}>This page replicates the Flex Living property layout — reviews shown below are manager-approved.</p>
+          <p className="property-meta">
+            {propertyReviews.length} {propertyReviews.length === 1 ? 'review' : 'reviews'} from guests
+          </p>
         </header>
 
-        <section style={{marginTop:20}}>
+        <section>
           <h2>Guest Reviews</h2>
           {propertyReviews.length === 0 ? (
-            <div>No approved reviews for this property.</div>
+            <div className="card empty-state">
+              No approved reviews for this property yet.
+            </div>
           ) : (
-            <div style={{display:'grid', gridTemplateColumns:'1fr', gap:12}}>
-              {propertyReviews.map(r => <ReviewCard key={r.id} review={r} />)}
+            <div className="reviews-grid">
+              {propertyReviews.map(r => (
+                <ReviewCard key={r.id} review={r} />
+              ))}
             </div>
           )}
         </section>

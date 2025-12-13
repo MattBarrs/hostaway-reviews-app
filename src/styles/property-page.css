@@ -1,0 +1,76 @@
+.property-page {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.property-page .back-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-1);
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: 2px solid var(--accent);
+}
+
+.property-page .back-link:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(35, 77, 66, 0.2);
+}
+
+.property-page .back-link:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-1);
+}
+
+.property-page header {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.property-page h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  margin: 0 0 12px;
+  line-height: 1.1;
+  color: #222;
+  font-weight: 800;
+}
+
+.property-page .property-meta {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+.property-page section {
+  margin-top: 32px;
+}
+
+.property-page h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #222;
+  font-weight: 700;
+}
+
+.property-page .empty-state {
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.property-page .reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}

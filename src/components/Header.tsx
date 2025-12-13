@@ -7,7 +7,7 @@ const Header: React.FC = () => (
       <img src="/header-logo.webp" alt="the flex." style={{height:32, width:'auto'}} />
     </NavLink>
     <nav>
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="/" exact>Home</NavLink>
       <NavLink to="/dashboard">Manager Dashboard</NavLink>
     </nav>
   </header>

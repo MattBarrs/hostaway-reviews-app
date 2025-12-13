@@ -1,22 +1,28 @@
 import React from 'react';
-import useReviews from '../hooks/useReviews';
-import ReviewList from '../components/ReviewList';
-import { ReviewType } from '../utils/types';
 import Header from '../components/Header';
 
 const Home: React.FC = () => {
-  const { reviews, loading, error } = useReviews();
-
   return (
     <>
       <Header />
-      <section className="hero" style={{backgroundImage: 'url(/hero-placeholder.jpg)'}}>
+      <section 
+        className="hero" 
+        style={{
+          backgroundImage: 'url(/main-background.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
         <div className="hero-inner container">
+          <div>
             <h1>Book Beautiful Stays</h1>
+            <p className="lead">Find thoughtfully designed homes across the city</p>
+          </div>
         </div>
       </section>
-
-        </>
-)};
+    </>
+  );
+};
 
 export default Home;
