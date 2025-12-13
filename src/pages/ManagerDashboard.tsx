@@ -34,30 +34,33 @@ const ManagerDashboard: React.FC = () => {
 
   const properties = useMemo(() => groupByProperty(reviews), [reviews]);
 
-  const processed = properties.map(p => {
-    const filteredReviews = p.reviews.filter(r => {
-      if (categoryFilter !== 'all') {
-        return r.reviewCategory.some(c => c.category === categoryFilter);
-      }
-      return true;
-    });
-    const ratings = filteredReviews.map(r => (r.rating ?? null)).filter(Boolean) as number[];
-    const avgFiltered = ratings.length ? (ratings.reduce((a,b)=>a+b,0)/ratings.length) : null;
-    return { ...p, filteredReviews, avgFiltered };
-  });
+  const processed = useMemo(() => {
+    return properties.map(p => {
+      const filteredReviews = categoryFilter !== 'all'
+        ? p.reviews.filter(r => r.reviewCategory.some(c => c.category === categoryFilter))
+        : p.reviews.slice();
 
-  // exclude properties that don't meet minRating (use avgFiltered first, fallback to avgRating)
+      const ratings = filteredReviews.map(r => (r.rating ?? null)).filter(Boolean) as number[];
+      const avgFiltered = ratings.length ? (ratings.reduce((a, b) => a + b, 0) / ratings.length) : null;
+      return { ...p, filteredReviews, avgFiltered };
+    });
+  }, [properties, categoryFilter]);
+
+  // exclude properties that don't have any reviews matching the category filter
   const visible = useMemo(() => {
     let list = processed.slice();
+    if (categoryFilter !== 'all') {
+      list = list.filter(p => p.filteredReviews.length > 0);
+    }
     if (minRating !== '') {
       list = list.filter(p => ((p.avgFiltered ?? p.avgRating ?? 0) >= Number(minRating)));
     }
-    if (sort === 'rating_desc') list.sort((a,b) => (b.avgFiltered ?? b.avgRating ?? 0) - (a.avgFiltered ?? a.avgRating ?? 0));
-    if (sort === 'rating_asc') list.sort((a,b) => (a.avgFiltered ?? a.avgRating ?? 0) - (b.avgFiltered ?? b.avgRating ?? 0));
-    if (sort === 'reviews') list.sort((a,b) => b.total - a.total);
-    if (sort === 'name') list.sort((a,b) => a.listingName.localeCompare(b.listingName));
+    if (sort === SortType.RatingDesc) list.sort((a,b) => (b.avgFiltered ?? b.avgRating ?? 0) - (a.avgFiltered ?? a.avgRating ?? 0));
+    if (sort === SortType.RatingAsc) list.sort((a,b) => (a.avgFiltered ?? a.avgRating ?? 0) - (b.avgFiltered ?? b.avgRating ?? 0));
+    if (sort === SortType.Reviews) list.sort((a,b) => b.total - a.total);
+    if (sort === SortType.Name) list.sort((a,b) => a.listingName.localeCompare(b.listingName));
     return list;
-  }, [processed, minRating, sort]);
+  }, [processed, minRating, sort, categoryFilter]);
 
   if (loading) return <div>Loading dashboard...</div>;
   if (error) return <div>Error: {error}</div>;
