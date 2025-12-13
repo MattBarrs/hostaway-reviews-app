@@ -1,7 +1,7 @@
 import React from 'react';
 import useReviews from '../hooks/useReviews';
 import ReviewList from '../components/ReviewList';
-import { ReviewType } from '../utils/reviewType';
+import { ReviewType } from '../utils/types';
 import Header from '../components/Header';
 
 const Home: React.FC = () => {

@@ -5,6 +5,7 @@ import { Review } from '../types/reviews';
 import { categoryLabel } from '../utils/categoryLabels';
 import { getApproved, toggleApproved, isApproved } from '../utils/approvedReviews';
 import Header from '../components/Header';
+import { SortType, SortKey } from '../utils/types';
 
 const groupByProperty = (reviews: Review[]) => {
   const map = new Map<string, Review[]>();
@@ -28,7 +29,7 @@ const ManagerDashboard: React.FC = () => {
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [minRating, setMinRating] = useState<number | ''>('');
   const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
-  const [sort, setSort] = useState<'rating_desc'|'rating_asc'|'reviews'|'name'>('rating_desc');
+  const [sort, setSort] = useState<SortKey>(SortType.RatingDesc);
 
   const properties = useMemo(() => groupByProperty(reviews), [reviews]);
 
@@ -68,7 +69,6 @@ const ManagerDashboard: React.FC = () => {
       <div className="dashboard" style={{padding:20}}>
         <header style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <h2>Manager Dashboard</h2>
-          <Link to="/properties">Properties</Link>
         </header>
 
         <section style={{marginTop: 16, display:'flex', gap:12, alignItems:'center'}}>
@@ -157,22 +157,6 @@ const ManagerDashboard: React.FC = () => {
               {visible.length === 0 && <li style={{padding:12}}>No properties match the filters.</li>}
             </ul>
           </div>
-
-          <aside style={{width:360}}>
-            <h3>Quick insights</h3>
-            <div style={{fontSize:13}}>
-              <strong>Top issue categories (low ratings):</strong>
-              <ul>
-                {(() => {
-                  const low = reviews.flatMap(r => r.reviewCategory.filter(c => c.rating <= 6).map(c => c.category));
-                  const freq = low.reduce<Record<string, number>>((acc, k) => { acc[k]=(acc[k]||0)+1; return acc; }, {});
-                  return Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([k,v]) => <li key={k}>{categoryLabel(k)} — {v}</li>);
-                })()}
-              </ul>
-              <strong>Approved reviews:</strong>
-              <div>{getApproved().length} approved</div>
-            </div>
-          </aside>
         </section>
       </div>
     </>

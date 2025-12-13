@@ -76,6 +76,4 @@ result: [
     guestName: 'Olivia Martin',
     listingName: '2BR Near City Park'
     }
-]
-}
-;
+]};
