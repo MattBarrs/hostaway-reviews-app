@@ -1,4 +1,25 @@
-.properties-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:18px}
-.property-tile{padding:18px;border-radius:12px;background:var(--card);border:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;min-height:120px}
-.property-tile h3{margin:0 0 8px;font-size:18px}
-.property-actions{display:flex;gap:8px;justify-content:flex-end}
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+.property-tile {
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+}
+.property-tile h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.property-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}

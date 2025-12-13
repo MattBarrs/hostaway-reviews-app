@@ -1,15 +1,84 @@
-.dashboard{background:transparent;padding:24px 0}
-.filters{display:flex;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
-.filter-input{padding:8px 10px;border-radius:8px;border:1px solid var(--border);background:#fff}
-.properties-list{display:flex;flex-direction:column;gap:12px}
-.property-card{display:flex;justify-content:space-between;align-items:flex-start;padding:14px;border-radius:10px;border:1px solid var(--border);background:linear-gradient(180deg,#fff,#fff)}
-.property-card .meta{color:var(--muted);font-size:13px}
-.property-reviews{margin-top:12px;padding-top:12px;border-top:1px dashed var(--border)}
-.approved-badge{background:#e6f7f1;color:var(--accent-2);padding:6px 8px;border-radius:8px;font-weight:700;font-size:12px}
-.insights{background:var(--card);padding:14px;border-radius:10px}
-.property-actions-group{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
-.property-actions-group .btn-link{text-decoration:none;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:600;background:var(--accent);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow-1);transition:background 0.2s ease}
-.property-actions-group .btn-link:hover{background:var(--accent-2)}
-.property-actions-group .btn-manage{background:var(--accent)}
-.property-actions-group .btn-manage.active{background:var(--accent-2)}
-.property-actions-group .btn-manage:hover{background:var(--accent-2)}
+.dashboard {
+  background: transparent;
+  padding: 24px 0;
+}
+.filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.filter-input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.properties-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.property-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #fff, #fff);
+}
+.property-card .meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+.property-reviews {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+.approved-badge {
+  background: #e6f7f1;
+  color: var(--accent-2);
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+}
+.insights {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 10px;
+}
+.property-actions-group {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.property-actions-group .btn-link {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
+  transition: background 0.2s ease;
+}
+.property-actions-group .btn-link:hover {
+  background: var(--accent-2);
+}
+.property-actions-group .btn-manage {
+  background: var(--accent);
+}
+.property-actions-group .btn-manage.active {
+  background: var(--accent-2);
+}
+.property-actions-group .btn-manage:hover {
+  background: var(--accent-2);
+}

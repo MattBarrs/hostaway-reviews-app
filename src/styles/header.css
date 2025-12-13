@@ -9,9 +9,9 @@
   z-index: 40;
   backdrop-filter: blur(4px);
   color: #dfe5e5;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-.header .brand{
+.header .brand {
   font-weight: 700;
   color: #ffffff;
   font-size: 18px;
@@ -20,12 +20,12 @@
   display: flex;
   align-items: center;
 }
-.header nav{
+.header nav {
   display: flex;
   gap: 24px;
   align-items: center;
 }
-.header nav a{
+.header nav a {
   text-decoration: none;
   color: #dfe5e5;
   padding: 8px 12px;
@@ -34,8 +34,8 @@
   font-weight: 500;
 }
 .header nav a:hover,
-.header nav a[aria-current="page"]{
+.header nav a[aria-current="page"] {
   color: #ffffff;
   font-weight: 700;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
