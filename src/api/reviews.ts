@@ -26,7 +26,7 @@ export const fetchReviews = async (): Promise<Review[]> => {
       rating: entry.rating,
       publicReview: entry.publicReview,
       reviewCategory: Array.isArray(entry.reviewCategory)
-        ? entry.reviewCategory.map((c: {category: String, rating: Number}) => ({ category: c.category, rating: c.rating }))
+        ? entry.reviewCategory.map((c: {category: string, rating: number}) => ({ category: c.category, rating: c.rating }))
         : [],
       submittedAt: entry.submittedAt,
       guestName: entry.guestName,
