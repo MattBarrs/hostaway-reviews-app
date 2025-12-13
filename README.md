@@ -56,14 +56,10 @@ hostaway-reviews-app
    npm start
    ```
 
-4. Open your browser and navigate to `http://localhost:3000` to view the application.
+4. Open your browser and navigate to `http://localhost:4000` to view the application.
 
 ## Usage
 
 - The home page provides an overview of the reviews.
 - Navigate to the manager dashboard to filter and manage reviews.
 - Each review card displays detailed information about the review, including ratings for different categories.
-
-## Contributing
-
-Feel free to submit issues or pull requests for improvements or bug fixes.
