@@ -13,4 +13,5 @@ export interface Review {
     submittedAt: string;
     guestName: string;
     listingName: string;
+    isApproved?: boolean;
 }
