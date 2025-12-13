@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
 import useReviews from '../hooks/useReviews';
 import { Review } from '../types/reviews';
 import { categoryLabel } from '../utils/categoryLabels';
