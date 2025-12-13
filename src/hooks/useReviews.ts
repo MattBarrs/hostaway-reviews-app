@@ -13,8 +13,8 @@ export const useReviews = () => {
       try {
         const data = await fetchReviews();
         if (mounted) setReviews(data);
-      } catch (err: any) {
-        if (mounted) setError(err.message || 'Error fetching reviews');
+      } catch (err) {
+        if (mounted) setError('Error fetching reviews');
       } finally {
         if (mounted) setLoading(false);
       }

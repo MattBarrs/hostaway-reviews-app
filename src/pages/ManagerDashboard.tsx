@@ -10,7 +10,7 @@ import { SortType, SortKey } from '../utils/types';
 const groupByProperty = (reviews: Review[]) => {
   const map = new Map<string, Review[]>();
   reviews.forEach(r => {
-    const key = r.listingName || 'Unknown';
+    const key = r.listingName;
     const arr = map.get(key) || [];
     arr.push(r);
     map.set(key, arr);
@@ -118,7 +118,7 @@ const ManagerDashboard: React.FC = () => {
                 type="number"
                 min={0}
                 max={10}
-                value={minRating as any}
+                value={minRating}
                 onChange={e => setMinRating(e.target.value === '' ? '' : Number(e.target.value))}
                 className="filter-input"
                 style={{ width: 90, marginLeft: 8 }}
@@ -129,7 +129,7 @@ const ManagerDashboard: React.FC = () => {
               Sort:
               <select
                 value={sort}
-                onChange={e => setSort(e.target.value as any)}
+                onChange={e => setSort(e.target.value as SortKey)}
                 className="filter-input"
                 style={{ marginLeft: 8 }}
               >
