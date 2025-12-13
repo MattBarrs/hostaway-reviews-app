@@ -34,7 +34,7 @@
   font-weight: 500;
 }
 .header nav a:hover,
-.header nav a[aria-current="page"] {
+.header nav a[aria-current='page'] {
   color: #ffffff;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.1);

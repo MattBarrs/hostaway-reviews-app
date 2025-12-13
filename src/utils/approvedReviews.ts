@@ -1,4 +1,4 @@
-export const APPROVED_KEY = "approvedReviews";
+export const APPROVED_KEY = 'approvedReviews';
 
 export const getApproved = (): number[] => {
   try {
@@ -16,7 +16,7 @@ export const setApproved = (ids: number[]) => {
 export const toggleApproved = (id: number) => {
   const ids = getApproved();
   const exists = ids.includes(id);
-  const next = exists ? ids.filter((i) => i !== id) : [...ids, id];
+  const next = exists ? ids.filter(i => i !== id) : [...ids, id];
   setApproved(next);
   return next;
 };

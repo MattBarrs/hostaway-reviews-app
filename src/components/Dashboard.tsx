@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { fetchReviews } from "../api/reviews";
-import ReviewList from "./ReviewList";
-import { Review } from "../types/reviews";
+import React, { useEffect, useState } from 'react';
+import { fetchReviews } from '../api/reviews';
+import ReviewList from './ReviewList';
+import { Review } from '../types/reviews';
 
 const Dashboard: React.FC = () => {
   const [reviews, setReviews] = useState([] as Review[]);
@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
         const fetchedReviews = await fetchReviews();
         setReviews(fetchedReviews);
       } catch (err) {
-        setError("Failed to fetch reviews");
+        setError('Failed to fetch reviews');
       } finally {
         setLoading(false);
       }
