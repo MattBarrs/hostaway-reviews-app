@@ -1,0 +1,29 @@
+.hero{
+  position:relative;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  padding:60px 0 80px;
+  background: #fff9e9;
+  overflow:hidden;
+}
+.hero-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:28px;padding:0 20px}
+.hero h1{
+  font-size:clamp(36px,7vw,72px);
+  line-height:0.95;margin:0 0 18px;color:#fff;text-shadow:0 6px 28px rgba(0,0,0,0.25);
+  font-weight:800;
+}
+.hero .lead{color:#fff;opacity:0.95;font-size:18px;margin-bottom:18px}
+.hero-search{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:var(--paper);
+  padding:18px;border-radius:20px;
+  box-shadow:0 12px 40px rgba(20,20,20,0.08);
+  width:100%;
+  max-width:880px;
+}
+.hero-search .field{flex:1;padding:0 12px;display:flex;align-items:center;gap:10px;color:#333}
+.hero-search .search-btn{min-width:120px}

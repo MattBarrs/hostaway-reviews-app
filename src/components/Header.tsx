@@ -2,11 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Header: React.FC = () => (
-  <header style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:12,borderBottom:'1px solid #eee',background:'#fff'}}>
-    <div style={{fontWeight:700}}>Flex Living - Reviews</div>
-    <nav style={{display:'flex',gap:16}}>
-      <NavLink exact to="/" activeStyle={{fontWeight:700}} style={{textDecoration:'none'}}>Home</NavLink>
-      <NavLink to="/dashboard" activeStyle={{fontWeight:700}} style={{textDecoration:'none'}}>Manager Dashboard</NavLink> 
+  <header className="header">
+    <NavLink to="/" className="brand">
+      <img src="/header-logo.webp" alt="the flex." style={{height:32, width:'auto'}} />
+    </NavLink>
+    <nav>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/dashboard">Manager Dashboard</NavLink>
     </nav>
   </header>
 );

@@ -70,101 +70,111 @@ const ManagerDashboard: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="dashboard" style={{padding:20}}>
-        <header style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-          <h2>Manager Dashboard</h2>
-        </header>
+      <div className="dashboard">
+        <div className="container">
+          <header style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
+            <h2>Manager Dashboard</h2>
+          </header>
 
-        <section style={{marginTop: 16, display:'flex', gap:12, alignItems:'center'}}>
-          <label>
-            Category:
-            <select value={categoryFilter} onChange={e => setCategoryFilter(e.target.value)} style={{marginLeft:8}}>
-              <option value="all">All</option>
-              {allCategories.map(c => <option key={c} value={c}>{categoryLabel(c)}</option>)}
-            </select>
-          </label>
+          <section className="filters">
+            <label>
+              Category:
+              <select value={categoryFilter} onChange={e => setCategoryFilter(e.target.value)} className="filter-input" style={{marginLeft:8}}>
+                <option value="all">All</option>
+                {allCategories.map(c => <option key={c} value={c}>{categoryLabel(c)}</option>)}
+              </select>
+            </label>
 
-          <label>
-            Min Rating:
-            <input
-              type="number"
-              min={0}
-              max={10}
-              value={minRating as any}
-              onChange={e => setMinRating(e.target.value === '' ? '' : Number(e.target.value))}
-              style={{width:80, marginLeft:8}}
-            />
-          </label>
+            <label>
+              Min Rating:
+              <input
+                type="number"
+                min={0}
+                max={10}
+                value={minRating as any}
+                onChange={e => setMinRating(e.target.value === '' ? '' : Number(e.target.value))}
+                className="filter-input"
+                style={{width:90, marginLeft:8}}
+              />
+            </label>
 
-          <label>
-            Sort:
-            <select value={sort} onChange={e => setSort(e.target.value as any)} style={{marginLeft:8}}>
-              <option value="rating_desc">Rating (high → low)</option>
-              <option value="rating_asc">Rating (low → high)</option>
-              <option value="reviews"># Reviews</option>
-              <option value="name">Name</option>
-            </select>
-          </label>
-        </section>
+            <label>
+              Sort:
+              <select value={sort} onChange={e => setSort(e.target.value as any)} className="filter-input" style={{marginLeft:8}}>
+                <option value="rating_desc">Rating (high → low)</option>
+                <option value="rating_asc">Rating (low → high)</option>
+                <option value="reviews"># Reviews</option>
+                <option value="name">Name</option>
+              </select>
+            </label>
+          </section>
 
-        <section style={{display: 'flex', gap: 24, marginTop: 24}}>
-          <div style={{flex: 1}}>
-            <h3>Properties</h3>
-            <ul style={{listStyle: 'none', padding: 0}}>
-              {visible.map(p => (
-                <li key={p.listingName} style={{padding:8, borderBottom:'1px solid #eee'}}>
-                  <div style={{display:'flex', justifyContent:'space-between'}}>
+          <section style={{display:'flex',gap:24,marginTop:20}}>
+            <div style={{flex:1}}>
+              <h3>Properties</h3>
+              <div className="properties-list">
+                {visible.map(p => (
+                  <div key={p.listingName} className="property-card">
                     <div>
                       <strong>{p.listingName}</strong>
-                      <div style={{fontSize:12, color:'#666'}}>{p.filteredReviews.length} reviews (total {p.total})</div>
+                      <div className="meta">{p.filteredReviews.length} reviews (total {p.total})</div>
                     </div>
+
                     <div style={{textAlign:'right'}}>
                       <div>Avg: {(p.avgFiltered ?? p.avgRating) ? ((p.avgFiltered ?? p.avgRating) as number).toFixed(1) : 'N/A'}</div>
-                      <div style={{marginTop:6}}>
-                        <Link to={`/property/${encodeURIComponent(p.listingName)}`}>View property</Link>
-                        <button style={{marginLeft:8}} onClick={() => setSelectedProperty(selectedProperty === p.listingName ? null : p.listingName)}>
-                          {selectedProperty === p.listingName ? 'Hide' : 'Manage reviews'}
+                      <div className="property-actions-group">
+                        <Link
+                          to={`/property/${encodeURIComponent(p.listingName)}`}
+                          className="btn-link"
+                        >
+                          View Property
+                        </Link>
+                        <button
+                          className={`btn-link btn-manage ${selectedProperty === p.listingName ? 'active' : ''}`}
+                          onClick={() => setSelectedProperty(selectedProperty === p.listingName ? null : p.listingName)}
+                        >
+                          {selectedProperty === p.listingName ? 'Hide' : 'Manage Reviews'}
                         </button>
                       </div>
                     </div>
-                  </div>
 
-                  {selectedProperty === p.listingName && (
-                    <div style={{marginTop:12}}>
-                      {p.filteredReviews.map(r => (
-                        <div key={r.id} style={{padding:8, border:'1px solid #f0f0f0', marginBottom:8}}>
-                          <div style={{display:'flex', justifyContent:'space-between'}}>
-                            <div>
-                              <strong>{r.guestName}</strong> — {r.rating ?? 'N/A'}
-                              <div style={{fontSize:12, color:'#666'}}>{new Date(r.submittedAt).toLocaleString()}</div>
+                    {selectedProperty === p.listingName && (
+                      <div className="property-reviews">
+                        {p.filteredReviews.map(r => (
+                          <div key={r.id} style={{padding:8, border:'1px solid var(--border)', borderRadius:8, marginBottom:8}}>
+                            <div style={{display:'flex',justifyContent:'space-between'}}>
+                              <div>
+                                <strong>{r.guestName}</strong> — {r.rating ?? 'N/A'}
+                                <div className="small">{new Date(r.submittedAt).toLocaleString()}</div>
+                              </div>
+                              <div>
+                                <label>
+                                  <input
+                                    type="checkbox"
+                                    checked={approvedIds.includes(r.id)}
+                                    onChange={() => {
+                                      const next = toggleApproved(r.id);
+                                      setApprovedIds(next);
+                                    }}
+                                  /> Approved
+                                </label>
+                              </div>
                             </div>
-                            <div>
-                              <label>
-                                <input
-                                  type="checkbox"
-                                  checked={approvedIds.includes(r.id)}
-                                  onChange={() => {
-                                    const next = toggleApproved(r.id);
-                                    setApprovedIds(next);
-                                  }}
-                                /> Approved
-                              </label>
+                            <p style={{marginTop:8}}>{r.publicReview}</p>
+                            <div style={{fontSize:13}}>
+                              {r.reviewCategory.map(c => <span key={c.category} className="cat-pill">{categoryLabel(c.category)}: {c.rating}</span>)}
                             </div>
                           </div>
-                          <p style={{marginTop:8}}>{r.publicReview}</p>
-                          <div style={{fontSize:13}}>
-                            {r.reviewCategory.map(c => <span key={c.category} style={{marginRight:10}}>{categoryLabel(c.category)}: {c.rating}</span>)}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </li>
-              ))}
-              {visible.length === 0 && <li style={{padding:12}}>No properties match the filters.</li>}
-            </ul>
-          </div>
-        </section>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                {visible.length === 0 && <div className="card">No properties match the filters.</div>}
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </>
   );

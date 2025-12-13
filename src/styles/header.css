@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  background: #284e4c;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(4px);
+  color: #dfe5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.header .brand{
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 18px;
+  padding-left: 100px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.header nav{
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.header nav a{
+  text-decoration: none;
+  color: #dfe5e5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+.header nav a:hover,
+.header nav a[aria-current="page"]{
+  color: #ffffff;
+  font-weight: 700;
+  background: rgba(255,255,255,0.1);
+}

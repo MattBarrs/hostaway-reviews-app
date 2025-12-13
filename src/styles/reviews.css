@@ -1,0 +1,7 @@
+.review-list{display:flex;flex-direction:column;gap:12px;background: #fff9e9;}
+.review-item{background:linear-gradient(180deg,#fff,#fff);padding:14px;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow-1)}
+.review-item h4{margin:0;font-size:16px}
+.review-item p{margin:8px 0;color:#333}
+.review-meta{display:flex;gap:10px;color:var(--muted);font-size:13px}
+.review-cats{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.cat-pill{background:var(--paper);padding:6px 8px;border-radius:999px;font-size:12px;color:var(--muted);border:1px solid var(--border)}
