@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import useReviews from '../hooks/useReviews';
 import { Review } from '../types/reviews';
 import { categoryLabel } from '../utils/categoryLabels';
-import { getApproved, toggleApproved, isApproved } from '../utils/approvedReviews';
+import { getApproved, toggleApproved } from '../utils/approvedReviews';
 import Header from '../components/Header';
 import { SortType, SortKey } from '../utils/types';
 
@@ -30,6 +30,7 @@ const ManagerDashboard: React.FC = () => {
   const [minRating, setMinRating] = useState<number | ''>('');
   const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
   const [sort, setSort] = useState<SortKey>(SortType.RatingDesc);
+  const [approvedIds, setApprovedIds] = useState<number[]>(() => getApproved());
 
   const properties = useMemo(() => groupByProperty(reviews), [reviews]);
 
@@ -138,8 +139,11 @@ const ManagerDashboard: React.FC = () => {
                               <label>
                                 <input
                                   type="checkbox"
-                                  checked={isApproved(r.id)}
-                                  onChange={() => toggleApproved(r.id)}
+                                  checked={approvedIds.includes(r.id)}
+                                  onChange={() => {
+                                    const next = toggleApproved(r.id);
+                                    setApprovedIds(next);
+                                  }}
                                 /> Approved
                               </label>
                             </div>
