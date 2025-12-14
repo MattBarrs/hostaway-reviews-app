@@ -1,6 +1,7 @@
 {
   "name": "hostaway-reviews-app",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -11,7 +12,7 @@
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --check src",
     "format:fix": "prettier --write src",
-    "dev:server": "ts-node-dev --respawn --transpile-only server.ts",
+    "dev:server": "node --loader ts-node/esm --no-warnings=ExperimentalWarning server.ts",
     "build:server": "tsc",
     "start:server": "node dist/server.js"
   },

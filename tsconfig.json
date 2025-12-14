@@ -23,6 +23,13 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "ts-node": {
+    "esm": true,
+    "experimentalEsm": true,
+    "moduleTypes": {
+      "server.ts": "esm"
+    }
+  },
   "include": [
     "server.ts",
     "src/**/*"
