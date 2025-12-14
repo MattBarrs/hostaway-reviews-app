@@ -13,7 +13,6 @@ This project is a React application that integrates with the Hostaway Reviews AP
 - **[Tech Stack](./docs/TECH_STACK.md)** - Technologies, libraries, and dependencies
 - **[Architecture](./docs/ARCHITECTURE.md)** - Design decisions, data flow, component structure
 - **[API & Routes](./docs/API.md)** - Routes, hooks, data models, state management
-- **[Configuration](./docs/CONFIGURATION.md)** - Build setup, ESLint, Prettier, deployment
 
 ### Integration & Analysis
 - **[Google Reviews Integration](./docs/GOOGLE_REVIEWS.md)** - Google API options, implementation guide, findings
