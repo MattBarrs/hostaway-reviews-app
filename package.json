@@ -4,17 +4,13 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --check src",
     "format:fix": "prettier --write src",
-    "dev:server": "node --loader ts-node/esm --no-warnings=ExperimentalWarning server.ts",
-    "build:server": "tsc",
-    "start:server": "node dist/server.js"
+    "server:build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
+    "server:start": "node --loader ts-node/esm --no-warnings=ExperimentalWarning server.ts"
   },
   "dependencies": {
     "axios": "^0.21.1",

@@ -19,9 +19,10 @@ cd hostaway-reviews-app
 npm install --legacy-peer-deps
 ```
 
-3. Start the development server:
+3. Build & Start the development server:
 ```bash
-npm start
+npm run server:build
+npm run server:start
 ```
 
 The app will open at `http://localhost:4000`
