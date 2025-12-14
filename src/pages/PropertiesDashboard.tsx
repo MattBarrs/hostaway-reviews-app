@@ -143,21 +143,23 @@ const PropertiesDashboard: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                <div style={{ textAlign: 'right' }}>
-                  <div>Avg: {p.avgRating ? p.avgRating.toFixed(1) : 'N/A'}</div>
-                  <div className="property-actions-group">
-                    <button
-                      className={` btn-link btn-manage view-reviews-btn ${selectedProperty === p.listingName ? 'active' : ''}`}
-                      onClick={() =>
-                        setSelectedProperty(
-                          selectedProperty === p.listingName ? null : p.listingName
-                        )
-                      }
-                    >
-                      {selectedProperty === p.listingName ? 'Hide' : 'View Reviews'}
-                    </button>
+                {p.total > 0 && (
+                  <div style={{ textAlign: 'right' }}>
+                    <div>Avg: {p.avgRating ? p.avgRating.toFixed(1) : 'N/A'}</div>
+                    <div className="property-actions-group">
+                      <button
+                        className={` btn-link btn-manage view-reviews-btn ${selectedProperty === p.listingName ? 'active' : ''}`}
+                        onClick={() =>
+                          setSelectedProperty(
+                            selectedProperty === p.listingName ? null : p.listingName
+                          )
+                        }
+                      >
+                        {selectedProperty === p.listingName ? 'Hide' : 'View Reviews'}
+                      </button>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {selectedProperty === p.listingName && (
                   <div className="property-reviews">

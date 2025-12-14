@@ -1,6 +1,7 @@
 .dashboard {
   background: transparent;
   padding: 24px 0;
+  background-color: #fffdf9;
 }
 .filters {
   display: flex;

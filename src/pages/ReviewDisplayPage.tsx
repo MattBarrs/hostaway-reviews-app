@@ -22,7 +22,7 @@ const ReviewDisplayPage: React.FC = () => {
     <>
       <Header />
       <div className="container property-page">
-        <Link to="/dashboard" className="back-link">
+        <Link to="/properties-dashboard" className="back-link">
           Back to dashboard
         </Link>
 

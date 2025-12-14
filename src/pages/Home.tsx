@@ -16,7 +16,7 @@ const Home: React.FC = () => {
       >
         <div className="hero-inner container">
           <div>
-            <h1>Book Beautiful Stays</h1>
+            <h1 className="hero-title">Book Beautiful Stays</h1>
             <p className="lead">Find thoughtfully designed homes across the city</p>
           </div>
         </div>

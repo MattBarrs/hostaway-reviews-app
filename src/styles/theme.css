@@ -1,7 +1,7 @@
 :root {
-  --bg: #fff9e9;
-  --paper: #fff9e9;
-  --card: #fff9e9;
+  --bg: #fffdf8;
+  --paper: #fffdf8;
+  --card: #fffdf8;
   --muted: #7a7a77;
   --accent: #234d42;
   --accent-2: #2f6b60;
@@ -21,6 +21,7 @@ html,
 body,
 #root {
   height: 100%;
+  background-color: #fffdf8;
 }
 body {
   font-family: var(--font-sans);
